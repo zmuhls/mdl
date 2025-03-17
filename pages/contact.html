@@ -25,6 +25,7 @@
                     <li><a href="staff.html">Staff</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="clinicians.html">Clinicians</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
@@ -176,6 +177,7 @@
                     <a href="staff.html">Our Staff</a>
                     <a href="services.html">Services</a>
                     <a href="faq.html">FAQ</a>
+                    <a href="clinicians.html">Clinicians</a>
                     <a href="contact.html">Contact Us</a>
                 </div>
                 
@@ -290,16 +292,17 @@
         
         .contact-card {
             background-color: var(--card-bg);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: var(--card-shadow);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-md);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-left: 3px solid var(--accent-color);
         }
         
         .contact-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-color);
         }
         
         .contact-card h3 {
@@ -379,69 +382,6 @@
     </style>
 
     <script src="../assets/js/main.js"></script>
-    <script>
-        // Enhanced form validation and accessibility
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Form validation (can expand as needed)
-            let isValid = true;
-            const requiredFields = this.querySelectorAll('[required]');
-            
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    isValid = false;
-                    field.classList.add('error');
-                    
-                    // Add error message for screen readers
-                    const errorMsg = document.createElement('div');
-                    errorMsg.className = 'error-message';
-                    errorMsg.setAttribute('aria-live', 'polite');
-                    errorMsg.textContent = `${field.getAttribute('placeholder')} is required`;
-                    
-                    // Only add if not already present
-                    if (!field.parentNode.querySelector('.error-message')) {
-                        field.parentNode.appendChild(errorMsg);
-                    }
-                } else {
-                    field.classList.remove('error');
-                    const existingError = field.parentNode.querySelector('.error-message');
-                    if (existingError) {
-                        existingError.remove();
-                    }
-                }
-            });
-            
-            if (isValid) {
-                // Success feedback
-                const successMsg = document.createElement('div');
-                successMsg.className = 'success-message';
-                successMsg.setAttribute('aria-live', 'assertive');
-                successMsg.textContent = 'Thank you for your message. We will contact you shortly.';
-                
-                // Add success message to the DOM
-                const formContainer = document.querySelector('.contact-form');
-                formContainer.prepend(successMsg);
-                
-                // Reset form
-                this.reset();
-                
-                // Remove success message after a delay
-                setTimeout(() => {
-                    successMsg.remove();
-                }, 5000);
-            }
-        });
-        
-        // Remove error styling once user starts typing
-        document.querySelectorAll('.form-group input, .form-group textarea').forEach(field => {
-            field.addEventListener('input', function() {
-                this.classList.remove('error');
-                const errorMsg = this.parentNode.querySelector('.error-message');
-                if (errorMsg) errorMsg.remove();
-            });
-        });
-    </script>
 
 </body>
 </html>

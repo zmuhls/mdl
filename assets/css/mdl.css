@@ -1,12 +1,49 @@
 /* MDL specific additional styles */
+
+/* Team separator styles */
+.team-separator {
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+    margin: 40px auto;
+    width: 80%;
+}
+
+.team-heading {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
+.founder-profile {
+    margin-bottom: 40px;
+}
+
+.founder-content {
+    padding: 0 15px;
+}
+:root {
+    /* Additional variables for consistent component styling */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 8px rgba(0,0,0,0.12);
+    --shadow-lg: 0 6px 16px rgba(0,0,0,0.15);
+}
+
 /* Base responsive container class */
 .container-responsive {
     width: 100%;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
 }
 
 /* Text alignment classes */
@@ -29,22 +66,26 @@
     border-radius: 4px;
 }
 
+/* Standardized icon list component */
 .icon-list {
     list-style-type: none;
     padding: 0;
+    margin: var(--spacing-md) 0;
 }
 
 .icon-list li {
     display: flex;
-    align-items: center;
-    margin-bottom: 12px;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.6;
 }
 
 .icon-list li i {
     color: var(--accent-color);
-    margin-right: 10px;
+    margin-right: var(--spacing-sm);
     width: 20px;
     text-align: center;
+    margin-top: 3px; /* Align icon with first line of text */
 }
 
 /* Custom animation for the logo */
@@ -84,13 +125,13 @@
     background-color: #fcf8e3;
     border: 1px solid #faebcc;
     color: #8a6d3b;
-    padding: 10px 15px;
-    border-radius: 4px;
-    margin-top: 15px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    margin-top: var(--spacing-md);
     text-align: center;
     font-size: 0.95rem;
     width: 100%;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-sm);
 }
 
 /* Footer quick links styling fix */
@@ -218,7 +259,26 @@
     right: 0;
 }
 
-/* Enhanced card hover effect */
+/* Enhanced standardized card component */
+.card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-xl);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: var(--spacing-xl);
+    border-bottom: 3px solid transparent;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-color);
+}
+
+/* Maintain existing card styling for content-section */
 .content-section {
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     border-bottom: 3px solid transparent;
