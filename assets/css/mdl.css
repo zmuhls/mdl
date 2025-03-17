@@ -1,4 +1,19 @@
 /* MDL specific additional styles */
+/* Base responsive container class */
+.container-responsive {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Justified text for better readability */
+.text-justified {
+    text-align: justify;
+    hyphens: auto;
+}
 .profile-bio {
     font-size: 1.1rem;
     line-height: 1.8;
@@ -58,6 +73,79 @@
     -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 3px 20px rgba(0,0,0,0.25);
     border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Beta notice styling */
+.beta-notice {
+    background-color: #fcf8e3;
+    border: 1px solid #faebcc;
+    color: #8a6d3b;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.95rem;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Footer quick links styling fix */
+.footer-section a {
+    display: block;
+    text-decoration: none;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-section a:hover {
+    color: #ffffff;
+    border-bottom: 1px solid var(--accent-color);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    /* Additional mobile-specific adjustments */
+    .container-responsive {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    /* Improve text readability on mobile */
+    .text-justified {
+        text-align: left;
+        hyphens: none;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    /* Better touch targets for mobile */
+    .nav-menu li a {
+        padding: 16px 20px;
+    }
+    
+    .footer-section a {
+        padding: 8px 0;
+        display: block;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .footer-section a:hover {
+        border-bottom: 1px solid var(--accent-color);
+    }
+}
+
+@media (max-width: 480px) {
+    /* Smaller vertical spacing on mobile */
+    .main-content {
+        padding-top: 85px;
+    }
+    
+    /* Ensure carousel captions are readable */
+    .carousel-caption {
+        padding: 10px 10px 35px;
+    }
 }
 
 .brand-logo span {
@@ -143,6 +231,7 @@
 
 #jan-muhlbauer-photo img {
     object-fit: contain;
+    object-position: left;
     max-height: 100%;
     width: auto;
     max-width: 100%;

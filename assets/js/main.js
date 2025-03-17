@@ -35,6 +35,7 @@ function initCarousel(carouselId) {
     const navContainer = carousel.querySelector('.carousel-nav');
     let currentSlide = 0;
     let slideInterval;
+    let isMobile = window.innerWidth < 768;
     
     // Create navigation dots
     items.forEach((_, index) => {
@@ -55,6 +56,32 @@ function initCarousel(carouselId) {
         showSlide(currentSlide + 1);
         resetInterval();
     });
+
+    // Add touch support for mobile devices
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, {passive: true});
+    
+    carousel.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, {passive: true});
+    
+    function handleSwipe() {
+        const swipeThreshold = 50; // Minimum distance to register as swipe
+        if (touchEndX - touchStartX > swipeThreshold) {
+            // Swipe right - show previous slide
+            showSlide(currentSlide - 1);
+            resetInterval();
+        } else if (touchStartX - touchEndX > swipeThreshold) {
+            // Swipe left - show next slide
+            showSlide(currentSlide + 1);
+            resetInterval();
+        }
+    }
 
     function showSlide(index) {
         // Remove active class from all items and dots
@@ -86,7 +113,14 @@ function initCarousel(carouselId) {
     // Start the carousel
     startInterval();
 
-    // Pause carousel on hover
-    carousel.addEventListener('mouseenter', () => clearInterval(slideInterval));
-    carousel.addEventListener('mouseleave', startInterval);
+    // Pause carousel on hover (desktop only)
+    if (!isMobile) {
+        carousel.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        carousel.addEventListener('mouseleave', startInterval);
+    }
+    
+    // Handle window resize to adjust for responsive design
+    window.addEventListener('resize', () => {
+        isMobile = window.innerWidth < 768;
+    });
 }

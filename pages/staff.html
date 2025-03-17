@@ -47,8 +47,8 @@
                     <h2>Dr. Jan E. Muhlbauer, M.D.</h2>
                     <h3>President and Founder, Muhlbauer Dermatopathology Laboratory</h3>
                     <p>
-                        <i class="fas fa-map-marker-alt"></i> 61 Monroe Ave, Suite B, Pittsford, NY 14534<br>
-                        <i class="fas fa-phone"></i> (555) 123-4567<br>
+                        <i class="fas fa-map-marker-alt"></i> 61 Monroe Ave Ste B, Pittsford, NY 14534-1311<br>
+                        <i class="fas fa-phone"></i> 1 (585) 586-5166<br>
                         <i class="fas fa-envelope"></i> muhlbauerj@muhlbauerlab.com
                     </p>
                     
@@ -145,7 +145,9 @@
                     } else {
                         // For portrait images (like Dr. Muhlbauer's)
                         container.style.maxWidth = '280px';
-                        container.style.margin = '0 auto';
+                        container.style.margin = '0';
+                        // Ensure left alignment
+                        janPhoto.style.objectPosition = 'left';
                     }
                 }
             }
