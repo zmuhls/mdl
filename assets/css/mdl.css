@@ -9,10 +9,14 @@
     padding-right: 20px;
 }
 
-/* Justified text for better readability */
+/* Text alignment classes */
 .text-justified {
     text-align: justify;
     hyphens: auto;
+}
+
+.text-center {
+    text-align: center;
 }
 .profile-bio {
     font-size: 1.1rem;
@@ -264,9 +268,7 @@
     z-index: 1;
 }
 
-/* Subtle background pattern for specific sections */
+/* No longer needed as grid is applied to entire site */
 .welcome-section {
-    background-image: linear-gradient(to right, rgba(49, 130, 206, 0.03) 1px, transparent 1px),
-                     linear-gradient(to bottom, rgba(49, 130, 206, 0.03) 1px, transparent 1px);
-    background-size: 20px 20px;
+    /* Custom styling for welcome section if needed */
 }
