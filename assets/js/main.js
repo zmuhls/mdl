@@ -3,6 +3,7 @@ const MDL = {
     // Initialize all site components
     init: function() {
         this.initMobileMenu();
+        this.handleResponsiveImages();
         
         // Initialize any carousels that exist on the page
         const carousels = document.querySelectorAll('.carousel');
@@ -11,6 +12,50 @@ const MDL = {
                 this.initCarousel(carousel.id);
             }
         });
+    },
+    
+    // Handle responsive images across the site
+    handleResponsiveImages: function() {
+        const adjustImages = () => {
+            // Handle admin images
+            document.querySelectorAll('.admin-image img').forEach(img => {
+                if (img.complete) {
+                    this.optimizeImageDisplay(img);
+                } else {
+                    img.addEventListener('load', () => this.optimizeImageDisplay(img));
+                }
+            });
+            
+            // Handle staff photos specifically
+            const staffPhotos = document.querySelectorAll('.staff-photo img');
+            staffPhotos.forEach(img => {
+                if (window.innerWidth <= 768) {
+                    // Mobile view - use thumbnail style
+                    const container = img.closest('.profile-image');
+                    if (container) {
+                        container.style.maxWidth = '280px';
+                        container.style.margin = '0 auto 20px';
+                    }
+                }
+            });
+        };
+        
+        // Run on load and resize
+        adjustImages();
+        window.addEventListener('resize', adjustImages);
+    },
+    
+    // Helper function to optimize image display
+    optimizeImageDisplay: function(img) {
+        const container = img.closest('.admin-image') || img.closest('.profile-image');
+        if (!container) return;
+        
+        // Apply different styles based on viewport width
+        if (window.innerWidth <= 768) {
+            // Mobile styles
+            img.style.objectFit = 'cover';
+            img.style.objectPosition = 'center';
+        }
     },
     
     // Mobile menu functionality

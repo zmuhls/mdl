@@ -91,6 +91,7 @@
 /* Custom animation for the logo */
 .brand-logo img {
     transition: transform 0.3s ease;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3)); /* Add shadow to logo for better visibility */
 }
 
 .brand-logo:hover img {
@@ -291,14 +292,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    max-width: 280px; /* Control width of container */
+    margin: 0 auto; /* Center on small screens */
 }
 
 #jan-muhlbauer-photo img {
     object-fit: contain;
-    object-position: left;
+    object-position: center;
     max-height: 100%;
     width: auto;
     max-width: 100%;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+}
+
+/* Thumbnail style for staff photos */
+.staff-photo {
+    max-width: 280px !important; /* Enforce thumbnail size */
+    height: 320px !important; /* More appropriate height for a portrait */
 }
 
 .content-section:before {

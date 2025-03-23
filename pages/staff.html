@@ -42,7 +42,7 @@
             </section>
 
             <div class="staff-profile">
-                <div class="profile-image" id="jan-muhlbauer-photo">
+                <div class="profile-image staff-photo" id="jan-muhlbauer-photo">
                     <img src="../assets/images/jan.jpg" alt="Dr. Jan E. Muhlbauer">
                 </div>
                 <div class="profile-info">
@@ -50,6 +50,7 @@
                     <h3>President and Founder, Muhlbauer Dermatopathology Laboratory</h3>
                     <p>
                         <i class="fas fa-map-marker-alt"></i> 61 Monroe Ave Ste B, Pittsford, NY 14534-1311<br>
+                        <i class="fas fa-info-circle"></i> Nestled between the Pittsford Village and the Erie Canal<br>
                         <i class="fas fa-phone"></i> 1 (585) 586-5166<br>
                         <i class="fas fa-envelope"></i> muhlbauerj@muhlbauerlab.com
                     </p>
@@ -97,9 +98,9 @@
             <div class="footer-container">
                 <div class="footer-section">
                     <h3>Contact Us</h3>
-                    <p>61 Monroe Ave<br>Suite B<br>Pittsford, NY 14534</p>
-                    <p>Phone: (555) 123-4567<br>Fax: (555) 123-4568</p>
-                    <p>Email: info@muhlbauerlab.com</p>
+                    <p>Muhlbauer Dermatopathology<br>61 Monroe Ave Ste B<br>Pittsford, NY 14534-1311</p>
+                    <p>Nestled between the Pittsford Village and the Erie Canal</p>
+                    <p>Phone: 1 (585) 586-5166<br>Email: info@muhlbauerlab.com</p>
                 </div>
                 
                 <div class="footer-section">
@@ -114,10 +115,10 @@
                 
                 <div class="footer-section">
                     <h3>Hours of Operation</h3>
-                    <p>Monday - Friday: 8:00 AM - 5:00 PM<br>
-                    Saturday - Sunday: Closed</p>
-                    <p>Lab Specimen Reception:<br>
-                    Monday - Friday: 7:30 AM - 6:00 PM</p>
+                    <p>Monday - Friday: 9:00 AM - 5:00 PM<br>
+                    Saturday & Sunday: Closed</p>
+                    <p>General Inquiries:<br>
+                    info@muhlbauerlab.com</p>
                 </div>
             </div>
             
@@ -129,30 +130,30 @@
 
     <script src="../assets/js/main.js"></script>
     <script>
-        // Ensure proper image proportions for Dr. Muhlbauer's photo
+        // Responsive image handling for staff photos
         window.addEventListener('load', function() {
             const janPhoto = document.querySelector('#jan-muhlbauer-photo img');
             if (janPhoto) {
-                // Set a specific aspect ratio container
-                const aspectRatio = 4/5; // Adjust based on the actual image ratio
+                // Set responsive container properties
                 const container = document.getElementById('jan-muhlbauer-photo');
                 
-                // Use natural dimensions if available
-                if (janPhoto.naturalWidth && janPhoto.naturalHeight) {
-                    const imgRatio = janPhoto.naturalWidth / janPhoto.naturalHeight;
-                    // Adjust container size based on image ratio
-                    if (imgRatio > 1) {
-                        // For landscape images
-                        container.style.width = '100%';
-                        container.style.height = 'auto';
+                // Handle different screen sizes
+                function adjustImageDisplay() {
+                    // For mobile devices
+                    if (window.innerWidth <= 768) {
+                        container.style.margin = '0 auto 20px';
+                        janPhoto.style.objectPosition = 'center';
                     } else {
-                        // For portrait images (like Dr. Muhlbauer's)
-                        container.style.maxWidth = '280px';
+                        // For desktop
                         container.style.margin = '0';
-                        // Ensure left alignment
-                        janPhoto.style.objectPosition = 'left';
+                        // Center the image for better visual appearance
+                        janPhoto.style.objectPosition = 'center';
                     }
                 }
+                
+                // Run initially and on resize
+                adjustImageDisplay();
+                window.addEventListener('resize', adjustImageDisplay);
             }
         });
     </script>
