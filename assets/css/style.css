@@ -335,7 +335,7 @@ body {
 
 /* Welcome Section */
 .welcome-section {
-    text-align: center;
+    text-align: center !important;
     padding: 40px var(--spacing-lg);
     margin-bottom: 40px;
     background-color: var(--card-bg);
@@ -351,6 +351,7 @@ body {
     color: var(--primary-color);
     font-weight: 700;
     line-height: 1.2;
+    text-align: center !important;
 }
 
 .welcome-section p {
@@ -359,6 +360,7 @@ body {
     margin: 0 auto;
     color: var(--secondary-color);
     line-height: 1.5;
+    text-align: center !important;
 }
 
 /* Content Sections */
