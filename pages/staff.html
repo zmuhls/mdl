@@ -47,7 +47,7 @@
                 <h2><i class="fas fa-building"></i> About MDL</h2>
                 <ul class="experience-list">
                     <li>Leading Regional Dermatopathology lab based in Rochester, NY</li>
-                    <li>Founded in 1984 by Dr. Jan Muhlbauer and currently staffed with 4 dermatopathologists</li>
+                    <li>Founded in 1984 by Dr. Jan Muhlbauer and currently staffed with 3 dermatopathologists</li>
                     <li>Currently serving Upstate NY with over 50 clients</li>
                     <li>Process & read over 70,000 patient specimens annually</li>
                     <li>CLIA Licensed & NYS Permitted, including Histotechs</li>
@@ -81,8 +81,8 @@
             </div>
             
             <div class="staff-profile">
-                <div class="profile-image staff-photo">
-                    <img src="../assets/images/lab.jpeg" alt="Dr. Ron Yaar">
+                <div class="profile-image staff-photo" id="ron-yaar-photo">
+                    <img src="../assets/images/ron.jpg" alt="Dr. Ron Yaar">
                 </div>
                 <div class="profile-info">
                     <h2><i class="fas fa-user-md"></i> Dr. Ron Yaar, M.D., PhD</h2>
@@ -100,8 +100,8 @@
             </div>
             
             <div class="staff-profile">
-                <div class="profile-image staff-photo">
-                    <img src="../assets/images/lab.jpeg" alt="Dr. Aaron Muhlbauer">
+                <div class="profile-image staff-photo" id="aaron-muhlbauer-photo">
+                    <img src="../assets/images/aaron.png" alt="Dr. Aaron Muhlbauer">
                 </div>
                 <div class="profile-info">
                     <h2><i class="fas fa-user-md"></i> Dr. Aaron Muhlbauer, M.D.</h2>
@@ -117,71 +117,6 @@
                     </ul>
                 </div>
             </div>
-            
-            <div class="staff-profile">
-                <div class="profile-image staff-photo">
-                    <img src="../assets/images/lab.jpeg" alt="Dr. Qinghong Yang">
-                </div>
-                <div class="profile-info">
-                    <h2><i class="fas fa-user-md"></i> Dr. Qinghong Yang, M.D., Ph.D.</h2>
-                    <h3>Staff Dermatopathologist</h3>
-                    <p>
-                        <i class="fas fa-calendar-check"></i> Joined MDL May 2022
-                    </p>
-                    
-                    <ul class="experience-list">
-                        <li>Fellowship in Dermatopathology at Mayo Clinic (2011)</li>
-                        <li>Board Certified in Dermatopathology (2011)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <section class="content-section">
-                <h2><i class="fas fa-file-medical-alt"></i> Pathology Reporting</h2>
-                
-                <div class="pathology-cards">
-                    <div class="pathology-card">
-                        <i class="fas fa-clock"></i>
-                        <h3>Turnaround Time</h3>
-                        <ul>
-                            <li>Standard: 3-4 days from receipt</li>
-                            <li>Stat requests available as needed</li>
-                            <li>Additional time for IHC, levels, or recuts</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="pathology-card">
-                        <i class="fas fa-vial"></i>
-                        <h3>Testing Services</h3>
-                        <ul>
-                            <li>IHC performed at MDL</li>
-                            <li>DIF performed at Beutner Lab</li>
-                            <li>Comprehensive correlated findings</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="pathology-card">
-                        <i class="fas fa-file-alt"></i>
-                        <h3>Report Features</h3>
-                        <ul>
-                            <li>Automatic grading of atypias</li>
-                            <li>Margins reporting included</li>
-                            <li>Melanoma synoptic reporting</li>
-                            <li>Inter-pathologist collaboration</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="pathology-card">
-                        <i class="fas fa-laptop-medical"></i>
-                        <h3>Delivery Options</h3>
-                        <ul>
-                            <li>EMR Interface (Medent, EMA, EZDerm)</li>
-                            <li>Secure web portal access</li>
-                            <li>Customized reporting solutions</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
 
             <div class="admin-section">
                 <div class="admin-image">
@@ -281,29 +216,36 @@
     <script>
         // Responsive image handling for staff photos
         window.addEventListener('load', function() {
-            const janPhoto = document.querySelector('#jan-muhlbauer-photo img');
-            if (janPhoto) {
-                // Set responsive container properties
-                const container = document.getElementById('jan-muhlbauer-photo');
-                
-                // Handle different screen sizes
-                function adjustImageDisplay() {
-                    // For mobile devices
-                    if (window.innerWidth <= 768) {
-                        container.style.margin = '0 auto 20px';
-                        janPhoto.style.objectPosition = 'center';
-                    } else {
-                        // For desktop
-                        container.style.margin = '0';
-                        // Center the image for better visual appearance
-                        janPhoto.style.objectPosition = 'center';
+            // Array of all staff photo containers
+            const photoContainers = [
+                { id: 'jan-muhlbauer-photo', position: 'center' },
+                { id: 'ron-yaar-photo', position: 'center' },
+                { id: 'aaron-muhlbauer-photo', position: 'center' }
+            ];
+            
+            // Function to adjust all staff photos
+            function adjustAllPhotos() {
+                photoContainers.forEach(photo => {
+                    const container = document.getElementById(photo.id);
+                    const img = container ? container.querySelector('img') : null;
+                    
+                    if (container && img) {
+                        // For mobile devices
+                        if (window.innerWidth <= 768) {
+                            container.style.margin = '0 auto 20px';
+                            img.style.objectPosition = 'center';
+                        } else {
+                            // For desktop
+                            container.style.margin = '0';
+                            img.style.objectPosition = photo.position;
+                        }
                     }
-                }
-                
-                // Run initially and on resize
-                adjustImageDisplay();
-                window.addEventListener('resize', adjustImageDisplay);
+                });
             }
+            
+            // Run initially and on resize
+            adjustAllPhotos();
+            window.addEventListener('resize', adjustAllPhotos);
         });
     </script>
 </body>
