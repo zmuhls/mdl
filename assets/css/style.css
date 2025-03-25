@@ -13,6 +13,11 @@
     --transition-speed: 0.3s;
     --heading-font: 'Source Serif Pro', serif;
     --body-font: 'Montserrat', sans-serif;
+    --border-radius-lg: 12px;
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --spacing-md: 15px;
+    --spacing-lg: 25px;
+    --spacing-xl: 40px;
 }
 
 * {
@@ -678,6 +683,10 @@ body {
 @media (max-width: 768px) {
     .navbar-toggle {
         display: block;
+        width: auto; /* Ensure button is sized by content */
+        overflow: visible; /* Prevent text cut-off */
+        white-space: nowrap; /* Keep text on one line */
+        margin-right: 10px; /* Add some space from the edge */
     }
 
     .nav-menu {
@@ -738,6 +747,27 @@ body {
         height: 250px;
         margin: 20px auto;
         border-radius: 8px; /* Smaller radius for mobile */
+    }
+    
+    /* Improve menu toggle display on small screens */
+    .navbar-toggle {
+        padding: 15px 10px; /* More horizontal padding */
+        font-size: 1rem; /* Slightly smaller font to fit better */
+    }
+    
+    .navbar-toggle span {
+        display: inline-block; /* Ensures proper rendering */
+    }
+    
+    /* Ensure logo is properly sized */
+    .brand-logo {
+        font-size: 1.2rem; /* Smaller font size on mobile */
+        max-width: 70%; /* Limit width to prevent overlap with menu button */
+    }
+    
+    .brand-logo img {
+        height: 50px; /* Smaller logo on mobile */
+        margin-right: 8px; /* Less space between logo and text */
     }
     
     /* Increase touch targets for mobile */

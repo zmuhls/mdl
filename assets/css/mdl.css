@@ -346,6 +346,24 @@
     .carousel-caption {
         padding: 10px 10px 35px;
     }
+    
+    /* Fix menu toggle display on iPhone */
+    .navbar-toggle {
+        padding-right: 15px !important;
+        padding-left: 15px !important;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        width: auto !important;
+    }
+    
+    .navbar-toggle span {
+        display: inline-block !important;
+    }
+    
+    /* Improve nav container spacing */
+    .nav-container {
+        padding: 0 10px;
+    }
 }
 
 .brand-logo span {
