@@ -179,7 +179,7 @@ body {
     height: 500px;
     margin: 30px auto;
     overflow: hidden;
-    background-color: var(--primary-color);
+    background-color: white;
     border-radius: var(--border-radius-lg);
     box-shadow: var(--card-shadow);
     /* Enable hardware acceleration for smoother animations */
@@ -201,41 +201,31 @@ body {
     height: 100%;
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
 }
 
 .carousel-inner .item.active {
     opacity: 1;
-    display: block;
+    display: flex;
+    visibility: visible;
 }
 
 .carousel-inner .item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    /* Lightening filter to improve contrast with blue logo text */
-    filter: brightness(1.15) contrast(0.9);
+    object-fit: contain;
+    /* Ensure image is properly centered */
+    display: block;
+    margin: 0 auto;
+    max-height: 450px;
+    /* No filter needed on white background */
+    filter: none;
 }
 
-/* Add a gradient overlay at the top for better menu visibility */
-.carousel::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 150px; /* Taller gradient */
-    background: linear-gradient(to bottom, 
-                rgba(45, 55, 72, 0.8) 0%,
-                rgba(45, 55, 72, 0.6) 30%,
-                rgba(45, 55, 72, 0.4) 50%,
-                rgba(45, 55, 72, 0.2) 70%,
-                rgba(45, 55, 72, 0) 100%);
-    z-index: 5;
-    pointer-events: none;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-}
+/* No gradient overlay needed with white background */
 
 /* Carousel Caption */
 .carousel-caption {
@@ -243,11 +233,12 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+    background: rgba(49, 130, 206, 0.8); /* Use blue accent color with transparency */
     color: white;
-    padding: 25px 20px 50px; /* Increased bottom padding to avoid overlap with dots */
+    padding: 15px 20px 40px; /* Adjusted padding */
     text-align: center;
     z-index: 5; /* Ensure caption is above other elements */
+    border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg); /* Match carousel border radius */
 }
 
 .carousel-caption h3 {
@@ -744,6 +735,8 @@ body {
 
     .carousel {
         height: 350px;
+        max-width: 90%;
+        margin: 20px auto;
     }
 
     .content-section {
@@ -768,6 +761,7 @@ body {
 @media (max-width: 480px) {
     .carousel {
         height: 250px;
+        max-width: 95%;
         margin: 20px auto;
         border-radius: 8px; /* Smaller radius for mobile */
     }
