@@ -110,20 +110,36 @@
                     </div>
                 </div>
                 <div class="address-container">
-                    <h3>Office Address</h3>
-                    <p>
-                        <i class="fas fa-building"></i> Muhlbauer Dermatopathology<br>
-                        <i class="fas fa-map-marker-alt"></i> 61 Monroe Ave Ste B<br>
-                        Pittsford, NY 14534-1311<br>
-                    </p>
+                    <div class="contact-block">
+                        <h3>Office Address</h3>
+                        <p class="contact-item">
+                            <i class="fas fa-building"></i> Muhlbauer Dermatopathology
+                        </p>
+                        <p class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i> 61 Monroe Ave Ste B<br>
+                            <span class="address-indent">Pittsford, NY 14534-1311</span>
+                        </p>
+                    </div>
                     
-                    <h3>Hours of Operation</h3>
-                    <p><i class="fas fa-clock"></i> <strong>Monday - Friday:</strong> 9:00 AM - 5:00 PM</p>
-                    <p><i class="fas fa-clock"></i> <strong>Saturday & Sunday:</strong> Closed</p>
+                    <div class="contact-block">
+                        <h3>Hours of Operation</h3>
+                        <p class="contact-item">
+                            <i class="fas fa-clock"></i> <strong>Monday - Friday:</strong> 9:00 AM - 5:00 PM
+                        </p>
+                        <p class="contact-item">
+                            <i class="fas fa-clock"></i> <strong>Saturday & Sunday:</strong> Closed
+                        </p>
+                    </div>
                     
-                    <h3>General Inquiries</h3>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:support@muhlbauerlab.com">support@muhlbauerlab.com</a></p>
-                    <p><i class="fas fa-phone"></i> 1 (585) 586-5166</p>
+                    <div class="contact-block">
+                        <h3>General Inquiries</h3>
+                        <p class="contact-item">
+                            <i class="fas fa-envelope"></i> <a href="mailto:support@muhlbauerlab.com">support@muhlbauerlab.com</a>
+                        </p>
+                        <p class="contact-item">
+                            <i class="fas fa-phone"></i> 1 (585) 586-5166
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -329,6 +345,35 @@
             justify-content: center;
             border-radius: 8px;
             overflow: hidden;
+        }
+        
+        /* Improved contact information formatting */
+        .contact-block {
+            margin-bottom: 22px;
+        }
+        
+        .contact-block h3 {
+            margin-bottom: 12px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 6px;
+            display: inline-block;
+        }
+        
+        .contact-item {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        .contact-item i {
+            width: 20px;
+            color: var(--accent-color);
+            text-align: center;
+            margin-right: 8px;
+        }
+        
+        .address-indent {
+            margin-left: 28px;
+            display: inline-block;
         }
         
         @media (max-width: 768px) {
