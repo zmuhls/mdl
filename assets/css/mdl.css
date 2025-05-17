@@ -1,5 +1,27 @@
 /* MDL specific additional styles */
 
+/* Center the second row of cards */
+.centered-row {
+    display: flex;
+    justify-content: center;
+}
+
+.centered-row .content-section {
+    max-width: 500px;
+}
+
+/* Ensure centered row works well on mobile */
+@media (max-width: 768px) {
+    .centered-row {
+        display: block; /* Stack on mobile */
+    }
+    
+    .centered-row .content-section {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 /* Team separator styles */
 .team-separator {
     height: 2px;
@@ -377,11 +399,13 @@
         margin-right: 15px; /* Add space between title and menu button */
     }
     
-    /* Prevent text overflow and ensure clean truncation if needed */
+    /* Ensure full title is visible on mobile */
     .brand-logo span {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        white-space: normal;
+        overflow: visible;
+        font-size: 1rem; /* Smaller font size to fit the full title */
+        line-height: 1.2;
+        max-width: 200px; /* Limit width to prevent overlap with menu button */
     }
 }
 
