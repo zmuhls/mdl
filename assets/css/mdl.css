@@ -553,8 +553,3 @@
     position: relative;
     z-index: 1;
 }
-
-/* No longer needed as grid is applied to entire site */
-.welcome-section {
-    /* Custom styling for welcome section if needed */
-}
